@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PriceVision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- NAVBAR -->
+<nav class="bg-blue-600 p-4 text-white flex justify-center gap-12 text-lg font-semibold">
+    <button onclick="showSection('onboardSection')">Product Onboarding</button>
+    <button onclick="showSection('predictSection')">Price Prediction</button>
+</nav>
+
+<!-- ================= FLOW 1 ================= -->
+<div id="onboardSection" class="max-w-xl mx-auto mt-10 bg-white p-6 rounded-lg shadow">
+
+    <h2 class="text-lg font-semibold mb-3">Paste Product URL</h2>
+
+    <input id="productUrl" class="input" placeholder="Amazon / Flipkart product link">
+
+    <button onclick="fetchProduct()" class="btn-primary">
+        Fetch Product Details
+    </button>
+
+    <!-- PRODUCT DETAILS -->
+    <div id="productCard" class="hidden mt-6 border rounded p-4 text-center">
+        <img id="image" class="w-40 mx-auto mb-3">
+        <h3 id="name" class="font-semibold"></h3>
+        <p id="platform" class="text-gray-600"></p>
+
+        <button onclick="trackProduct()" class="btn-primary mt-4">
+            Track Product
+        </button>
+
+        <p id="result" class="text-green-600 mt-2"></p>
+    </div>
+
+</div>
+
+<!-- ================= FLOW 2 ================= -->
+<div id="predictSection" class="hidden max-w-xl mx-auto mt-10 bg-white p-6 rounded-lg shadow">
+
+    <h2 class="text-lg font-semibold mb-4">Price Prediction (Next 7 Days)</h2>
+
+    <input id="productId" type="number" class="input" placeholder="Enter Product ID">
+
+    <button onclick="getPrediction()" class="btn-primary">
+        Predict Price
+    </button>
+
+    <ul id="predictionList" class="mt-4 space-y-2"></ul>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center text-gray-500 mt-10 mb-4">
+    © 2025 PriceVision | Spring Boot + ML
+</footer>
+
+<script src="script.js"></script>
+
+<style>
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+.btn-primary {
+    width: 100%;
+    background-color: #2563eb;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+</style>
+
+</body>
+</html>
